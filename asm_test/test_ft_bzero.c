@@ -12,13 +12,16 @@
 
 #include "asm_test.h"
 
-size_t    test_valid(char *ptr, size_t size)
+size_t    test_valid(size_t size)
 {
     size_t i = 0;
+    char *yolo;
 
+    yolo = malloc(size);
+    strcpy(yolo, "test");
     while (i < size)
     {
-        if (ptr[i] != '/0')
+        if (yolo[i] != '\0')
             return size;
     }
     return -1;
@@ -26,15 +29,21 @@ size_t    test_valid(char *ptr, size_t size)
 
 int main()
 {
-    char    *yolo1;
-    char    *yolo2;
-    char    *yolo3;
-    char    *yolo4;
-    
-    yolo1 = malloc(1);
-    yolo2 = malloc(5);
-    yolo3 = malloc(50000);
-    yolo4 = malloc(31222112);
-
-
+    ft_putendl("test started");    
+    if (test_valid(0) != -1)
+       ft_putendl("error bzero");
+    if (test_valid(1) != -1)
+        ft_putendl("error bzero");
+    if (test_valid(15) != -1)
+        ft_putendl("error bzero");
+    if (test_valid(40) != -1)
+        ft_putendl("error bzero");
+    if (test_valid(159) != -1)
+        ft_putendl("error bzero");
+    if (test_valid(665151) != -1)
+        ft_putendl("error bzero");
+    if (test_valid(848465) != -1)
+        ft_putendl("error bzero");
+    ft_putendl("test ended");
+    return 1;
 }

@@ -12,5 +12,7 @@
 
 #ifndef ASM_TEST_H
 #define ASM_TEST_H
-# include "libft/libft.h"
+# include "libft/libft/libft.h"
+#include <stdlib.h>
+#include <string.h>
 #endif
