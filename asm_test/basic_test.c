@@ -8,6 +8,13 @@ void ft_strcat(char *dest, char *src);
 int ft_isalpha(int c);
 int ft_isdigit(int c);
 int ft_isalnum(int c);
+int ft_isascii(int c);
+int ft_isprint(int c);
+int	ft_toupper(int c);
+int	ft_tolower(int c);
+size_t ft_strlen(const char *s);
+void *ft_memset(void *s, int c, size_t n);
+
 
 void test_bzero()
 {
@@ -80,6 +87,110 @@ void test_isalnum()
         printf("ft_isdigit 20failed\n");
 }
 
+void test_isascii()
+{
+    if (ft_isascii(-1) == 1)
+        printf("ft_isascii 21failed\n");
+    if (ft_isascii(128) == 1)
+        printf("ft_isascii 22failed\n");
+    if (ft_isascii(0) != 1)
+        printf("ft_isascii 23failed\n");
+    if (ft_isascii(127) != 1)
+        printf("ft_isascii 24failed\n");
+    if (ft_isascii(50) != 1)
+        printf("ft_isascii 25failed\n");
+}
+
+void test_isprint()
+{
+    if (ft_isprint(-1) == 1)
+        printf("ft_isprint 26failed\n");
+    if (ft_isprint(128) == 1)
+        printf("ft_isprint 27failed\n");
+    if (ft_isprint(0) == 1)
+        printf("ft_isprint 28failed\n");
+    if (ft_isprint(127) == 1)
+        printf("ft_isprint 29failed\n");
+    if (ft_isprint(50) != 1)
+        printf("ft_isprint 30failed\n");
+}
+
+void test_toupper()
+{
+    if (ft_toupper('a') != 'A')
+        printf("ft_toupper 31failed\n");
+    if (ft_toupper('A') != 'A')
+        printf("ft_toupper 32failed\n");
+    if (ft_toupper('z') != 'Z')
+        printf("ft_toupper 33failed\n");
+    if (ft_toupper('Z') != 'Z')
+        printf("ft_toupper 34failed\n");
+    if (ft_toupper('f') != 'F')
+        printf("ft_toupper 35failed\n");
+    if (ft_toupper('F') != 'F')
+        printf("ft_toupper 36failed\n");
+    if (ft_toupper('1') != '1')
+        printf("ft_toupper 37failed\n");
+    if (ft_toupper(0) != 0)
+        printf("ft_toupper 38failed\n");
+}
+
+void test_tolower()
+{
+    if (ft_tolower('A') != 'a')
+        printf("ft_tolower 39failed\n");
+    if (ft_tolower('a') != 'a')
+        printf("ft_tolower 40failed\n");
+    if (ft_tolower('Z') != 'z')
+        printf("ft_tolower 41failed\n");
+    if (ft_tolower('z') != 'z')
+        printf("ft_tolower 42failed\n");
+    if (ft_tolower('F') != 'f')
+        printf("ft_tolower 43failed\n");
+    if (ft_tolower('f') != 'f')
+        printf("ft_tolower 44failed\n");
+    if (ft_tolower('1') != '1')
+        printf("ft_tolower 45failed\n");
+    if (ft_tolower(0) != 0)
+        printf("ft_tolower 46failed\n");
+}
+
+void    test_strlen()
+{
+    if (ft_strlen("yolo") != 4)
+        printf("ft_stren 47failed\n");
+    if (ft_strlen("") != 0)
+        printf("ft_stren 48failed\n");
+    if (ft_strlen("1") != 1)
+        printf("ft_stren 49failed\n");
+    if (ft_strlen("yoloyoloyoloyoloyolo") != 20)
+        printf("ft_stren 50failed\n");
+    if (ft_strlen("yoloyolo20") != 10)
+        printf("ft_stren 51failed\n");
+}
+
+void test_mem(int numtest)
+{
+    char *yolo = malloc(numtest);
+    char *yolo2 = malloc(numtest);
+    ft_memset(yolo, 70, numtest);
+    memset(yolo, 70, numtest);
+    if (strcmp(yolo, yolo2) != 0)
+        printf("ft_memset 52failed\n");
+}
+
+void test_memset(void *s, int c, size_t n)
+{
+    test_mem(1);
+    test_mem(2);
+    test_mem(100);
+    test_mem(1000);
+    test_mem(10000);
+    test_mem(100000);
+
+}
+
+
 int main()
 {
     test_bzero();
@@ -87,5 +198,11 @@ int main()
     test_isalpha();
     test_isdigit();
     test_isalnum();
+    test_isascii();
+    test_isprint();
+    test_toupper();
+    test_tolower();
+    test_strlen();
+    test_memset();
     return 0;
 }
