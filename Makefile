@@ -15,6 +15,10 @@ SRC = ft_bzero.o\
 	  ft_tolower.o\
 	  ft_strlen.o\
 	  ft_memset.o\
+	  ft_memcpy.o\
+	  ft_strdup.o\
+	  ft_cat.o\
+	  ft_strjoin.o\
 
 CC = nasm -f elf64
 

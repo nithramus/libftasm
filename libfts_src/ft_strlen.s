@@ -7,7 +7,7 @@ ft_strlen:
     mov al, 0
     mov rcx, -1
     repne scasb
-    mov rax, rcx
-    sub rax, -1
+    mov rax, -2
+    sub rax, rcx
     pop rbp
     ret

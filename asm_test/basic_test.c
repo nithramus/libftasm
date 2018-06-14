@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 void ft_bzero(void *s, size_t n);
 void ft_strcat(char *dest, char *src);
@@ -14,7 +17,10 @@ int	ft_toupper(int c);
 int	ft_tolower(int c);
 size_t ft_strlen(const char *s);
 void *ft_memset(void *s, int c, size_t n);
-
+void *ft_memcpy(void *dest, const void *src, size_t n);
+char *ft_strdup(const char *s);
+char *ft_cat(const int fd);
+char *ft_strjoin(char const *str1, char const *str2);
 
 void test_bzero()
 {
@@ -174,12 +180,12 @@ void test_mem(int numtest)
     char *yolo = malloc(numtest);
     char *yolo2 = malloc(numtest);
     ft_memset(yolo, 70, numtest);
-    memset(yolo, 70, numtest);
-    if (strcmp(yolo, yolo2) != 0)
-        printf("ft_memset 52failed\n");
+    memset(yolo2, 70, numtest);
+    if (strncmp(yolo, yolo2, numtest) != 0)
+        printf("ft_memset failed\n");
 }
 
-void test_memset(void *s, int c, size_t n)
+void test_memset()
 {
     test_mem(1);
     test_mem(2);
@@ -187,9 +193,67 @@ void test_memset(void *s, int c, size_t n)
     test_mem(1000);
     test_mem(10000);
     test_mem(100000);
+}
+
+void basic_test_memcpy(int value)
+{
+    char *yolo = malloc(value);
+    char *yolo2 = malloc(value);
+    memset(yolo, 0, value);
+    memset(yolo2, 'a', value);
+    ft_memcpy(yolo, yolo2, value);
+    if (strncmp(yolo, yolo2, value) != 0)
+        printf("ft_memcpy failed\n");
+
 
 }
 
+void test_memcpy()
+{
+    basic_test_memcpy(1);
+    basic_test_memcpy(20);
+    basic_test_memcpy(200);
+    basic_test_memcpy(3000);
+    basic_test_memcpy(500000);
+}
+
+void basic_test_strdup(int value)
+{
+    char *yolo = malloc(value);
+    memset(yolo, 0, value);
+    memset(yolo, 'a', value - 1);
+    char *yolo2 = ft_strdup(yolo);
+    if (strcmp(yolo, yolo2) != 0)
+        printf("ft_strdup failed\n");
+}
+
+void test_strdup()
+{
+    basic_test_strdup(1);
+    basic_test_strdup(10);
+    basic_test_strdup(100);
+    basic_test_strdup(1000);
+}
+
+void test_cat()
+{
+    char buff[50];
+    write(1, "yolo\n ", 5);
+    printf("test\n");
+    int fd = open("test.c", O_RDWR);
+    ft_cat(fd);
+}
+
+void	test_strjoin()
+{
+    char *yolo = "yolo";
+    char *test = "swag\n";
+    // write(1, "yolo\n", 5);
+
+    char *final = ft_strjoin(yolo, test);
+    if (strcmp(final, "yoloswag\n") != 0)
+        printf("ft_strjoin failed");
+}
 
 int main()
 {
@@ -204,5 +268,9 @@ int main()
     test_tolower();
     test_strlen();
     test_memset();
+    test_memcpy();
+    test_strdup();
+    test_cat();
+    test_strjoin();
     return 0;
 }
