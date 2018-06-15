@@ -282,8 +282,8 @@ void    test_strchr()
 
 void test_putnbr()
 {
-    int yolo = ft_putnbr(6);
-    printf("%d\n", yolo);   
+    ft_putnbr(8112);
+    // printf("%d\n", yolo);   
     // ft_putnbr(0);
     // ft_putnbr(1);
     // ft_putnbr(-1);
