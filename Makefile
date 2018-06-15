@@ -5,6 +5,7 @@ SRC_PATH = libfts_src
 OBJ_PATH = libfts_obj
 
 SRC = ft_bzero.o\
+	  ft_puts.o\
 	  ft_strcat.o\
 	  ft_isalpha.o\
 	  ft_isdigit.o\
@@ -19,6 +20,8 @@ SRC = ft_bzero.o\
 	  ft_strdup.o\
 	  ft_cat.o\
 	  ft_strjoin.o\
+	  ft_strchr.o\
+	  ft_putnbr.o\
 
 CC = nasm -f elf64
 

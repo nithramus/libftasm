@@ -6,6 +6,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+int ft_puts(const char *s);
 void ft_bzero(void *s, size_t n);
 void ft_strcat(char *dest, char *src);
 int ft_isalpha(int c);
@@ -21,6 +22,14 @@ void *ft_memcpy(void *dest, const void *src, size_t n);
 char *ft_strdup(const char *s);
 char *ft_cat(const int fd);
 char *ft_strjoin(char const *str1, char const *str2);
+char *ft_strchr(const char *str, int c);
+int ft_putnbr(int n);
+
+void test_puts()
+{
+    ft_puts("ft_puts test");
+    ft_puts("");
+}
 
 void test_bzero()
 {
@@ -255,8 +264,39 @@ void	test_strjoin()
         printf("ft_strjoin failed");
 }
 
+void    test_strchr()
+{
+    char *chained = "abcdefghigklmnopqrstomnstadf";
+    if (ft_strchr(chained, 'a') != strchr(chained, 'a'))
+        printf("ft_strchr 0failed \n");
+    if (ft_strchr(chained, 0) != strchr(chained, 0))
+        printf("ft_strchr 1failed\n");
+    if (ft_strchr(chained, 'f') != strchr(chained, 'f'))
+        printf("ft_strchr 2failed\n");
+    if (ft_strchr(chained, 'g') != strchr(chained, 'g'))
+        printf("ft_strchr 3failed\n");
+    if (ft_strchr(chained, 10) != strchr(chained, 10))
+        printf("ft_strchr 4failed \n");
+
+}
+
+void test_putnbr()
+{
+    int yolo = ft_putnbr(6);
+    printf("%d\n", yolo);   
+    // ft_putnbr(0);
+    // ft_putnbr(1);
+    // ft_putnbr(-1);
+    // ft_putnbr(-2147483648);
+    // ft_putnbr(2147483647);
+    // ft_putnbr(44650);
+    // ft_putnbr(-44650);
+    // ft_putnbr(12);
+}
+
 int main()
 {
+    test_puts();
     test_bzero();
     test_strcat();
     test_isalpha();
@@ -271,6 +311,9 @@ int main()
     test_memcpy();
     test_strdup();
     test_cat();
+    // bonus
     test_strjoin();
+    test_strchr();
+    test_putnbr();
     return 0;
 }
