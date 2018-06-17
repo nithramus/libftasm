@@ -282,16 +282,22 @@ void    test_strchr()
 
 void test_putnbr()
 {
-    ft_putnbr(8112);
-    // printf("%d\n", yolo);   
-    // ft_putnbr(0);
-    // ft_putnbr(1);
-    // ft_putnbr(-1);
-    // ft_putnbr(-2147483648);
-    // ft_putnbr(2147483647);
-    // ft_putnbr(44650);
-    // ft_putnbr(-44650);
-    // ft_putnbr(12);
+    ft_putnbr(0);
+    printf("\n");
+    ft_putnbr(1);
+    printf("\n");
+    ft_putnbr(-1);
+    printf("\n");
+    ft_putnbr(-2147483648);
+    printf("\n");
+    ft_putnbr(2147483647);
+    printf("\n");
+    ft_putnbr(44650);
+    printf("\n");
+    ft_putnbr(-44650);
+    printf("\n");
+    ft_putnbr(12);
+    printf("\n");
 }
 
 int main()
