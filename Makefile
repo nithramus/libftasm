@@ -22,6 +22,8 @@ SRC = ft_bzero.o\
 	  ft_strjoin.o\
 	  ft_strchr.o\
 	  ft_putnbr.o\
+	  itoa.o\
+	  ft_strsplit.o\
 
 CC = nasm -f elf64
 

@@ -24,6 +24,9 @@ char *ft_cat(const int fd);
 char *ft_strjoin(char const *str1, char const *str2);
 char *ft_strchr(const char *str, int c);
 int ft_putnbr(int n);
+char *itoa(int n);
+char **ft_strplit(char *s, int c);
+
 
 void test_puts()
 {
@@ -300,6 +303,50 @@ void test_putnbr()
     printf("\n");
 }
 
+void test_itoa()
+{
+    if (strcmp(itoa(10), "10") != 0)
+        printf("0itoa error");
+    if (strcmp(itoa(0), "0") != 0)
+        printf("1itoa error");
+    if (strcmp(itoa(-1), "-1") != 0)
+        printf("2itoa error");
+    if (strcmp(itoa(2147483647), "2147483647") != 0)
+        printf("3itoa error");
+}
+
+void test_strplit()
+{
+    char test[] = "weostrxdotyfrgyuiozefarezgv";
+    char **yolo = ft_strplit(test, 'o');
+    int i = 0;
+
+    while (yolo[i])
+    {
+        puts(yolo[i]);
+        i++;
+    }
+    char test2[] = "";
+    yolo = ft_strplit(test2, 'o');
+        i = 0;
+
+    while (yolo[i])
+    {
+        puts(yolo[i]);
+        i++;
+    }
+    char test3[] = "ezfrgtyu";
+    yolo = ft_strplit(test3, 'o');
+
+    i = 0;
+
+    while (yolo[i])
+    {
+        puts(yolo[i]);
+        i++;
+    }
+}
+
 int main()
 {
     test_puts();
@@ -316,10 +363,12 @@ int main()
     test_memset();
     test_memcpy();
     test_strdup();
-    test_cat();
+    // test_cat();
     // bonus
     test_strjoin();
     test_strchr();
-    test_putnbr();
+    // test_putnbr();
+    test_itoa();
+    test_strplit();
     return 0;
 }
