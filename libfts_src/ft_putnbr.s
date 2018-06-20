@@ -1,16 +1,19 @@
+%define SYSCALL(x)	0x2000000 | x
+%define WRITE 4
+
 section .data
 yolo db '-', 1
 
 section .text
-; void ft_putnbr(int n);
-global ft_putnbr
-ft_putnbr:
+; void _ft_putnbr(int n);
+global _ft_putnbr
+_ft_putnbr:
     push rbp
     mov rbp, rsp
     cmp edi, 0
     jge .go
     push rdi
-    mov rsi, yolo
+    lea rsi, [rel yolo]
     call write
     pop rdi
     neg edi
@@ -40,7 +43,7 @@ boucle:
     ret
 
 write:
-    mov rax, 1
+    mov rax, SYSCALL(WRITE)
     mov rdi, 1
     mov rdx, 1
     syscall

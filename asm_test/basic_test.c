@@ -363,11 +363,11 @@ int main()
     test_memset();
     test_memcpy();
     test_strdup();
-    // test_cat();
+    test_cat();
     // bonus
     test_strjoin();
     test_strchr();
-    // test_putnbr();
+    test_putnbr();
     test_itoa();
     test_strplit();
     return 0;

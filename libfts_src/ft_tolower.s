@@ -1,7 +1,7 @@
 section .text
-global ft_tolower
-; int		ft_tolower(int c)
-ft_tolower:
+global _ft_tolower
+; int		_ft_tolower(int c)
+_ft_tolower:
     push rbp
     mov rbp, rsp
     mov eax, edi

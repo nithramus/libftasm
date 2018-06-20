@@ -1,7 +1,7 @@
 section .text
-global ft_isalpha
-; int isalpha(int c);
-ft_isalpha:
+global _ft_isalpha
+; int _ft_isalpha(int c);
+_ft_isalpha:
     push rbp
     mov rbp, rsp
     mov ecx, edi

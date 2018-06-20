@@ -1,7 +1,7 @@
 section .text
-; int ft_isprintf(int c);
-global ft_isprint
-ft_isprint:
+; int _ft_isprintf(int c);
+global _ft_isprint
+_ft_isprint:
     push rbp
     mov rbp, rsp
     mov ecx, edi

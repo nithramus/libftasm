@@ -1,26 +1,22 @@
 section .data
 number db 'value %d', 10, 0
-char db '%c', 0
-string db '%s', 0
 
 section .text
-global ft_strplit
-extern ft_strlen
-extern printf
-extern ft_putnbr
-extern malloc
-ft_strplit:
+global _ft_strplit
+extern _ft_strlen
+extern _ft_putnbr
+extern _malloc
+_ft_strplit:
     push rbp
     mov rbp, rsp
     sub rsp, 32
     mov [rbp - 8], rdi ; string
     mov [rbp - 12], esi ; caractere
-    call ft_strlen
+    call _ft_strlen
     mov [rbp - 20], rax ; strlen
     mov rdi, [rbp - 8]
     mov esi, [rbp - 12]
     mov rcx, [rbp - 20]
-
     call count_occurences
     mov [rbp - 24], eax ; nb occurences
     mov rdi, rax
@@ -76,7 +72,7 @@ alloc_zone:
     mov rdi, 8
     mul rdi
     mov rdi, rax
-    call malloc
+    call _malloc
     ret
 
 count_occurences:
@@ -93,7 +89,7 @@ count_occurences:
     inc rdi
     cmp rcx, 0
     jne .boucle
-    mov rdi, number
+    lea rdi, [rel number]
     .retour;
     ret
 

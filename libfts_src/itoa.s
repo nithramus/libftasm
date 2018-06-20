@@ -3,21 +3,21 @@ yolo db '-', 1
 
 section .text
 ; char *itoa(int n);
-extern malloc
-extern ft_bzero
-global itoa
-itoa:
+extern _malloc
+extern _ft_bzero
+global _itoa
+_itoa:
     push rbp
     mov rbp, rsp
     .malloc_zone:
     push rdi
     mov rdi, 12
-    call malloc
+    call _malloc
         cmp rax, 0
         je .retour
     mov rsi, 12
     mov rdi, rax
-    call ft_bzero
+    call _ft_bzero
     mov r15, rdi
     mov r14, rdi
     pop rdi
@@ -25,7 +25,7 @@ itoa:
     cmp edi, 0
     jge .go
     push rdi
-    mov rsi, yolo
+    lea rsi, [rel yolo]
     call write
     pop rdi
     neg edi

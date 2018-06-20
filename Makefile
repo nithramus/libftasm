@@ -25,7 +25,7 @@ SRC = ft_bzero.o\
 	  itoa.o\
 	  ft_strsplit.o\
 
-CC = nasm -f elf64
+CC = nasm -f macho64
 
 SRC_O = $(addprefix $(OBJ_PATH)/,$(SRC))
 
@@ -46,7 +46,7 @@ fclean: clean
 re: fclean all
 
 lib: all
-	gcc -c asm_test/basic_test.c -o basic_test.o
-	gcc basic_test.o $(NAME) -o test
+	gcc -c -g asm_test/basic_test.c -o basic_test.o
+	gcc -g basic_test.o $(NAME) -o test
 
 .PHONY: $(NAME) all %.o clean fclean re flag EXEC

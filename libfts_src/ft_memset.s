@@ -1,6 +1,6 @@
 section .text
-global ft_memset
-ft_memset:
+global _ft_memset
+_ft_memset:
     push rbp
     mov rbp, rsp
     cld

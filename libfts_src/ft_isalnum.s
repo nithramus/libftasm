@@ -1,15 +1,15 @@
-section .text:
-global ft_isalnum
-extern ft_isdigit
-extern ft_isalpha
+section .text
+global _ft_isalnum
+extern _ft_isdigit
+extern _ft_isalpha
 ; int isalnum(int c);
-ft_isalnum:
+_ft_isalnum:
     push rbp
     mov rbp, rsp
-    call ft_isdigit
+    call _ft_isdigit
     cmp eax, 1
     je .end
-    call ft_isalpha
+    call _ft_isalpha
     .end:
     pop rbp
     ret

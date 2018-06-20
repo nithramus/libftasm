@@ -1,7 +1,7 @@
 section .text
-global ft_isdigit
-; int isdigit(int c);
-ft_isdigit:
+global _ft_isdigit
+; int _ft_isdigit(int c);
+_ft_isdigit:
     push rbp
     mov rbp, rsp
     mov ecx, edi

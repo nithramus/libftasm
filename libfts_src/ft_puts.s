@@ -1,20 +1,23 @@
+%define SYSCALL(x)	0x2000000 | x
+%define WRITE 4
+
 section .data
-newline db 10, 1
+newline db 10
 section .text
-global ft_puts
-extern ft_strlen
-ft_puts:
+global _ft_puts
+extern _ft_strlen
+_ft_puts:
     push rbp
     mov rbp, rsp
     mov rsi, rdi ;the string
-    call ft_strlen
+    call _ft_strlen
     mov rdx, rax ; size
-    mov rax, 1 ; write call
+    mov rax, SYSCALL(WRITE) ; write call
     mov rdi, 1 ;stdout
     syscall
-    mov rax, 1
+    mov rax, SYSCALL(WRITE)
     mov rdi, 1
-    mov rsi, newline
+    lea rsi, [rel newline]
     mov rdx, 1
     syscall
     pop rbp

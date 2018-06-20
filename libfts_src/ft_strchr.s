@@ -1,13 +1,13 @@
 section .text
-;char	*ft_strchr(const char *str, int c)
-global ft_strchr
-extern ft_strlen
-ft_strchr:
+;char	*_ft_strchr(const char *str, int c)
+global _ft_strchr
+extern _ft_strlen
+_ft_strchr:
     push rbp
     mov rbp, rsp
     push rsi
     push rdi
-    call ft_strlen
+    call _ft_strlen
     add rax, 1; the last caractere must be compared
     pop rdi
     pop rsi

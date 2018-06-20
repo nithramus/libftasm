@@ -1,7 +1,7 @@
-section .text:
-; int isascii(int c);
-global ft_isascii
-ft_isascii:
+section .text
+; int _ft_isascii(int c);
+global _ft_isascii
+_ft_isascii:
     push rbp
     mov rbp, rsp
     mov ecx, edi
