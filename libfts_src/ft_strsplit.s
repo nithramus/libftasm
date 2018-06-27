@@ -41,8 +41,8 @@ ft_stroccu:
     cmp rcx, 0
     jle .yolo
     call passer
-    mov [ebx], rdi
-    add ebx, 8
+    mov [rbx], rdi
+    add rbx, 8
     call avancer
     jmp .tjrs
     .yolo:
@@ -63,8 +63,6 @@ avancer:
     mov al, 0x0
     repne scasb
     ret
-
-
 
 alloc_zone:
     mov rax, rdi

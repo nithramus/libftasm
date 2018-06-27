@@ -317,10 +317,10 @@ void test_itoa()
 
 void test_strplit()
 {
-    char test[] = "weostrxdotyfrgyuiozefarezgv";
+    char *test = malloc(400);
+    strcpy(test, "weostrxdotyfrgyuiozefarezgv");
     char **yolo = ft_strplit(test, 'o');
     int i = 0;
-
     while (yolo[i])
     {
         puts(yolo[i]);
@@ -329,7 +329,6 @@ void test_strplit()
     char test2[] = "";
     yolo = ft_strplit(test2, 'o');
         i = 0;
-
     while (yolo[i])
     {
         puts(yolo[i]);
