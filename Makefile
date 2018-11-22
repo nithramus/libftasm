@@ -38,6 +38,8 @@ $(OBJ_PATH)/%.o:$(SRC_PATH)/%.s
 	$(CC) $< -o $@
 
 clean:
+	rm -f test
+	rm -f basic_test.o
 	rm -f $(addprefix $(OBJ_PATH)/,$(SRC))
 
 fclean: clean
