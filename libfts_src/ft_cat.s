@@ -10,13 +10,15 @@ _ft_cat:
     mov rbp, rsp
     sub rsp, 0x28 ; buff size
     mov [rsp + 0x20], rdi
+    cmp rdi, 0
+    jbe .end
     .boucle:
     mov rax, SYSCALL(READ) ;read
     mov rsi, rsp
     mov rdx, 0x20
     syscall
-    cmp rax, 0
-    jbe .end
+    cmp rax, 0x20
+    jb .end
     mov rdx, rax ;write
     mov rax, SYSCALL(WRITE)
     mov rdi, 0x01

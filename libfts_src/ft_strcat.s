@@ -2,6 +2,7 @@ section .text
 global _ft_strcat
 _ft_strcat:
     push rbp
+    push rbx
     mov rbp, rsp
     mov rax, rdi
     mov rcx, rsi
@@ -20,5 +21,7 @@ _ft_strcat:
         jmp .copy
     .endcopy:
     mov BYTE[rax], 0x0
+    mov rax, rdi
+    pop rbx
     pop rbp
     ret

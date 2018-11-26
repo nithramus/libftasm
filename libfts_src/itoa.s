@@ -8,6 +8,8 @@ extern _ft_bzero
 global _itoa
 _itoa:
     push rbp
+    push r14
+    push r15
     mov rbp, rsp
     .malloc_zone:
     push rdi
@@ -33,6 +35,8 @@ _itoa:
     call boucle
     .retour:
     mov rax, r15
+    pop r15
+    pop r14
     pop rbp
     ret
 

@@ -250,7 +250,6 @@ void test_strdup()
 void test_cat()
 {
     char buff[50];
-    write(1, "yolo\n ", 5);
     printf("test\n");
     int fd = open("test.c", O_RDWR);
     ft_cat(fd);
@@ -348,26 +347,68 @@ void test_strplit()
 
 int main()
 {
+    printf("test ft_puts: \n");
     test_puts();
+    printf("\nft_puts ok.\n\n");
+    printf("test ft_bzero: \n");
     test_bzero();
+    printf("\nft_bzero ok.\n\n");
+    printf("test ft_strcat: \n");
     test_strcat();
+    printf("\nft_strcat ok.\n\n");
+    printf("test ft_isalpha: \n");
     test_isalpha();
+    printf("\nft_isalpha ok.\n\n");
+    printf("test ft_isdigit: \n");
     test_isdigit();
+    printf("\nft_isdigit ok.\n\n");
+    printf("test ft_isalnum: \n");
     test_isalnum();
+    printf("\nft_isalnum ok.\n\n");
+    printf("test ft_isascii: \n");
     test_isascii();
+    printf("\nft_isascii ok.\n\n");
+    printf("test ft_isprint: \n");
     test_isprint();
+    printf("\nft_isprint ok.\n\n");
+    printf("test ft_toupper: \n");
     test_toupper();
+    printf("\nft_toupper ok.\n\n");
+    printf("test ft_tolower: \n");
     test_tolower();
+    printf("\nft_tolower ok.\n\n");
+    printf("test ft_strlen: \n");
     test_strlen();
+    printf("\nft_strlen ok.\n\n");
+    printf("test ft_memset: \n");
     test_memset();
+    printf("\nft_memset ok.\n\n");
+    printf("test ft_memcpy: \n");
     test_memcpy();
+    printf("\nft_memcpy ok.\n\n");
+    printf("test ft_strdup: \n");
     test_strdup();
+    printf("\nft_strdup ok.\n\n");
+    printf("test ft_cat: \n");
     test_cat();
+    printf("\nft_cat ok.\n\n");
+    printf("test ft_nus: \n");
     // bonus
+    printf("\nft_nus ok.\n\n");
+    printf("test ft_strjoin: \n");
     test_strjoin();
+    printf("\nft_strjoin ok.\n\n");
+    printf("test ft_strchr: \n");
     test_strchr();
+    printf("\nft_strchr ok.\n\n");
+    printf("test ft_putnbr: \n");
     test_putnbr();
+    printf("\nft_putnbr ok.\n\n");
+    printf("test ft_itoa: \n");
     test_itoa();
+    printf("\nft_itoa ok.\n\n");
+    printf("test ft_strplit: \n");
     test_strplit();
+    printf("\nft_strplit ok.\n\n");
     return 0;
 }

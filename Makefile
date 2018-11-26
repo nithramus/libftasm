@@ -31,7 +31,7 @@ SRC_O = $(addprefix $(OBJ_PATH)/,$(SRC))
 
 all: $(NAME)
 
-$(NAME): $(SRC_O)
+$(NAME): $(addprefix $(OBJ_PATH)/,$(SRC))
 	ar rc $(NAME) $(SRC_O)
 
 $(OBJ_PATH)/%.o:$(SRC_PATH)/%.s
